@@ -1,5 +1,13 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.lineUp = function () {
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].$node.css('top', '0px');
+      window.dancers[i].top = 0; 
+    }
+  };
+
+
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -28,7 +36,27 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 10000
     );
+    //debugger;
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  $('.addLineUpButton').on('click', function () {
+    debugger;
+    window.lineUp();
+    console.log('linedup');
+  });
+  
+  $( '.container' ).click(function(event) {
+    console.log('Radiate maker function attempted'); 
+    var radiateMaker = window.radiateClass; 
+    var left = event.pageX - 30; 
+    var top = event.pageY - 30; 
+    var newRadiate = new radiateMaker(top, left, 500); 
+    $('.container').append(newRadiate.$node); 
+  });
+  
 });
+
+
 

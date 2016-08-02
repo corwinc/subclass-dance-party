@@ -2,10 +2,12 @@ var PulseyDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
   this.size = 10; 
   this.toggleSize = true; 
+  /*
   var borderSettings = {
     'border': '10px solid #000fff'
   };
   this.$node.css(borderSettings);
+  */
 };
 
 PulseyDancer.prototype = Object.create(Dancer.prototype);

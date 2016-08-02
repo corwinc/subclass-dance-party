@@ -1,14 +1,20 @@
 body, html{
-  height:100%;
+  height:100%; 
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-color: #cccccc;
+  font-size: 18px;
+  background-image: url("url.jpg");
+  background-size: auto 100%;
+  background-color: #cccccc;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
+
+
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
@@ -17,15 +23,33 @@ body, a:link, a:visited, a:active{
   height:32px;
   background-color: #555;
 }
+
+.container{
+  height: 800px;
+  width: 100%;
+}
+
 .title{
   background-color: #777;
 }
-.dancer {
+.dancer { /* Note: Changed border to 0px*/
   height: 10px;
   width: 10px;
-  border:10px solid red;
-  border-radius:10px;
+  border:1px solid white;
+  border-radius:50%;
   position:absolute;
+  background: white;
+  opacity: 0.75;
+  box-shadow: 0px 0px 5px 5px rgba(255,255,255,0.25)
+}
+
+.radiate { /* Note: Changed border to 0px*/
+  border:7px solid white;
+  border-radius:50%;
+  position:absolute;
+  background: white;
+  opacity: 0.75;
+  box-shadow: 0px 0px 5px 5px rgba(255,255,255,0.25)
 }
 
 .center {
@@ -33,3 +57,4 @@ body, a:link, a:visited, a:active{
   width: 100px;
   margin: center;
 }
+

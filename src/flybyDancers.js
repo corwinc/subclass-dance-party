@@ -14,7 +14,7 @@ flybyDancer.prototype.step = function () {
     'width': '+=5px',
     'left': '+=100'
   }, this.timeBetweenSteps, 'linear', function () {
-    console.log("finished animation");
+    console.log('finished animation');
   }); 
 
 }; 
