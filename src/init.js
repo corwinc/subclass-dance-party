@@ -32,9 +32,9 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 10000
+      Math.floor($("body").height() * Math.random()),
+      Math.floor($("body").width() * Math.random()),
+      Math.random() * 1000
     );
     //debugger;
     window.dancers.push(dancer);

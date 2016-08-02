@@ -40,9 +40,9 @@ var Dancer = function (top, left, timeBetweenSteps) {
   this.left = left; 
   this.timeBetweenSteps = timeBetweenSteps; 
   this.$node = $('<span class="dancer"></span>');
-  debugger;
-  this.step(); 
+  //debugger;
   this.setPosition(top, left);
+  this.step(); 
 };
 
 Dancer.prototype.step = function () {
