@@ -26,24 +26,34 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
 
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="blinky-dancer"></span>');
-  debugger;
+  //this.$node = $('<span class="blinky-dancer"></span>');
   //this.step(); 
-  this.setPosition(top, left); // This line is here b/c the this.$node gets updated to 'blinky-dancer' AFTER the Dancer.call; 
+  //this.setPosition(top, left); // This line is here b/c the this.$node gets updated to 'blinky-dancer' AFTER the Dancer.call; 
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
 BlinkyDancer.prototype.constructor = BlinkyDancer; 
 
 
-BlinkyDancer.prototype.step = function () { 
-  setTimeout(BlinkyDancer.prototype.step, this.timeBetweenSteps);
-  toggleNode.bind(this);  
-  console.log('Blinky dancer function is getting called');
+BlinkyDancer.prototype.step = function () {
+  //debugger;
+  Dancer.prototype.step.call(this); 
+  //debugger;
+  //var boundFn = BlinkyDancer.prototype.step.bind(this); 
+  //setTimeout(boundFn, this.timeBetweenSteps);
+  //BlinkyDancer.toggleNodeMethod(); 
+  //toggleNode.bind(this.$node);  
+  //this.toggleNodeMethod.bind(this);
+  //console.log('Blinky dancer function is getting called');
+  this.$node.toggle();
+}; 
+/*
+BlinkyDancer.prototype.toggleNodeMethod = function () {
+  this.$node.toggle(); 
 }; 
 
 var toggleNode = function (node) {
-  node.$node.toggle(); 
+  node.toggle(); 
 }; 
-
+*/
 

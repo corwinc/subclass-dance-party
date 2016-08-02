@@ -40,14 +40,14 @@ var Dancer = function (top, left, timeBetweenSteps) {
   this.left = left; 
   this.timeBetweenSteps = timeBetweenSteps; 
   this.$node = $('<span class="dancer"></span>');
-  debugger;
+  //debugger;
   this.step(); 
   this.setPosition(top, left);
 };
 
 Dancer.prototype.step = function () {
-  //var boundStep = Dancer.prototype.step.bind(this); 
-  setTimeout(Dancer.prototype.step, this.timeBetweenSteps); 
+  var boundStep = this.step.bind(this); 
+  setTimeout(boundStep, this.timeBetweenSteps); 
   console.log('The dancer function is getting called'); // Might have problems with this
 };
 
