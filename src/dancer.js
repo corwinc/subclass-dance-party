@@ -1,4 +1,5 @@
 // Creates and returns a new dancer object that can step
+/*
 var makeDancer = function(top, left, timeBetweenSteps) {
 
   var dancer = {};
@@ -11,6 +12,8 @@ var makeDancer = function(top, left, timeBetweenSteps) {
     // it just schedules the next step
     setTimeout(dancer.step, timeBetweenSteps);
   };
+
+  // Becuase this is the functional pattern this is the call that starts the step loop. 
   dancer.step();
 
   dancer.setPosition = function(top, left) {
@@ -30,3 +33,38 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 
   return dancer;
 };
+*/
+
+var Dancer = function (top, left, timeBetweenSteps) {
+  this.top = top;
+  this.left = left; 
+  this.timeBetweenSteps = timeBetweenSteps; 
+  this.$node = $('<span class="dancer"></span>');
+  debugger;
+  this.step(); 
+  this.setPosition(top, left);
+};
+
+Dancer.prototype.step = function () {
+  //var boundStep = Dancer.prototype.step.bind(this); 
+  setTimeout(Dancer.prototype.step, this.timeBetweenSteps); 
+  console.log('The dancer function is getting called'); // Might have problems with this
+};
+
+Dancer.prototype.setPosition = function (top, left) {
+  var styleSettings = {
+    top: top,
+    left: left
+  };
+  this.$node.css(styleSettings);
+};
+
+
+
+
+
+
+
+
+
+
