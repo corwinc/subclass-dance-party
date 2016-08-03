@@ -5,7 +5,7 @@ $(document).ready(function() {
       window.dancers[i].$node.css('top', '0px');
       window.dancers[i].top = 0; 
     }
-  };
+  };  
 
 
 
@@ -32,9 +32,9 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      Math.floor($("body").height() * Math.random()),
-      Math.floor($("body").width() * Math.random()),
-      Math.random() * 1000
+      Math.floor($('body').height() * Math.random()),
+      Math.floor($('body').width() * Math.random()),
+      3000
     );
     //debugger;
     window.dancers.push(dancer);
@@ -42,7 +42,7 @@ $(document).ready(function() {
   });
 
   $('.addLineUpButton').on('click', function () {
-    debugger;
+    //debugger;
     window.lineUp();
     console.log('linedup');
   });
@@ -54,6 +54,64 @@ $(document).ready(function() {
     var top = event.pageY - 30; 
     var newRadiate = new radiateMaker(top, left, 500); 
     $('.container').append(newRadiate.$node); 
+  });
+
+  var floatFunction = window.floatClass;
+  //debugger;
+
+  var repeatFloat = function () {
+
+    var float = new floatFunction(
+        Math.floor($('body').height() * Math.random()),
+        Math.floor($('body').width() * Math.random()),
+        Math.random() * 1000
+    );
+
+    window.dancers.push(float); 
+    $('body').append(float.$node);
+  };
+
+  setInterval(repeatFloat, 1000); 
+
+
+  var addStarFoodFunction = window.staticTester;
+  var addBlinkyFoodFunction = window.BlinkyDancer; 
+  var radiateMaker = window.radiateClass;
+
+  var repeatAddStarFood = function () {
+
+    var coinFlip = Math.random(); 
+    if (coinFlip >= 0.5) {
+      var starFood = new addStarFoodFunction (
+        Math.floor($('body').height() * Math.random()),
+        Math.floor($('body').width() * Math.random()),
+        Math.random() * 1000
+      );
+    } else {
+      var starFood = new addBlinkyFoodFunction (
+        Math.floor($('body').height() * Math.random()),
+        Math.floor($('body').width() * Math.random()),
+        Math.max(Math.random(), 0.4) * 1000
+      );
+    }
+
+    window.dancers.push(starFood);
+    $('body').append(starFood.$node);
+  };
+
+  setInterval(repeatAddStarFood, 1000);
+
+
+  ///// Changing the collision behavior 
+  $('.staticTester').on('blur', function () {
+    //debugger;
+    var radiate = new radiateMaker(
+      Math.floor($('body').height() * Math.random()),
+      Math.floor($('body').width() * Math.random()),
+      500
+    );
+    window.dancers.push(radiate);
+    $('body').append(radiate.$node);
   });
   
 });
