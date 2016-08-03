@@ -11,11 +11,16 @@ seekerClass.prototype.step = function () {
   Dancer.prototype.step.call(this);
   debugger;
   var target = $('.staticTester');
+  var index = Math.floor(Math.random() * target.length);
+  target = target[index];
+  target = $(target);
   // var radius = this.$node.css('height'); 
   // radius = convertToNum(radius) / 2; 
   var targetx = target.css('left');
   // targetx = convertToNum(targetx); 
-  var targety = target.css('top'); 
+  var targety = target.css('top');
+  target.css('background', 'yellow');
+  //target.removeClass('.staticTester');
   // targety = convertToNum(targety); 
   this.$node.animate({
     // to $('.staticTester').y
@@ -30,13 +35,13 @@ seekerClass.prototype.step = function () {
     $(this).css({'background': '#9fb6cd', 'border-color': '#9fb6cd'});
   }).animate({
 
-  }, this.timeBetweenSteps, 'linear', function () {
+  }, 0, 'linear', function () {
     //$(this).css({'background': 'white', 'border-color': 'white'});
   });
   if (this.$node.css('top') === targety && this.$node.css('left') === targetx) {
-    target[0].remove();
-    this.$node.css('height', '+=5');
-    this.$node.css('width', '+=5'); 
+    target.remove();
+    this.$node.css('height', '+=10');
+    this.$node.css('width', '+=10'); 
   }
 }; 
 
@@ -52,13 +57,4 @@ var distance = function (obj1, obj2) {
 
 };
 
-// color : changes
-// flash
-// it grows
 
-// css properties 
-// color
-
-// animate 
-// grow
-// flash
